@@ -4,12 +4,14 @@ const Users = require('../model/user')
 class UsersController {
 
   async create(req, res) {
+
     const { name, email, password } = req.body
 
     const user = await Users.findOne({ email })
 
     if (!user) {
-      await Users.create({ name, email, password })
+      const wallet = 0
+      await Users.create({ name, email, password, wallet })
       return res.status(200).json("Usuário criado com sucesso!")
     }
     return res.status(400).json("Usuário já existe!")
@@ -80,6 +82,18 @@ class UsersController {
         return res.status(404).json(error)
       })
   }
+  async updateWallet(req, res) {
+
+    const { _id } = req.params
+    const { wallet } = req.body
+    const totalWallet = await Users.updateOne({ id: _id }, {
+      wallet: wallet
+
+    })
+    return res.json(totalWallet)
+
+  }
+
 
 }
 

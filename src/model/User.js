@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  wallet: {
+    type: Number,
+    required: false
+  },
   created: {
     type: Date,
     default: Date.now

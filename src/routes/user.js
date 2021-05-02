@@ -9,6 +9,6 @@ routerUsers.put('/add/:id', UsersController.update)
 routerUsers.post('/login', UsersController.login)
 routerUsers.post('/forgot', UsersController.forgotPassword)
 routerUsers.post('/delete/:id', UsersController.delete)
-
+routerUsers.put('/wallet/:id', UsersController.updateWallet)
 
 module.exports = routerUsers
