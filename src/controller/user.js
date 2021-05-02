@@ -84,9 +84,10 @@ class UsersController {
   }
   async updateWallet(req, res) {
 
-    const { _id } = req.params
+    const { id } = req.params
     const { wallet } = req.body
-    const totalWallet = await Users.updateOne({ id: _id }, {
+
+    const totalWallet = await Users.updateOne({ _id: id }, {
       wallet: wallet
 
     })
